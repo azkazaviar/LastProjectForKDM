@@ -1,51 +1,131 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <title>My Last Message for KDM People's</title>
-  <script src="https://dekatutorial.github.io/drk/s.js"></script>
-  <link rel="stylesheet" href="https://dekatutorial.github.io/drk/s.css" />
+  <title>Pesan Rahasia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .unlocked {
+      background-color: #e6f7ea;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Efek hover */
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .reply-button {
+      background-color: #3498db;
+    }
+
+    .reply-button:hover {
+      background-color: #2980b9;
+    }
+
+    .typewriter-text {
+      overflow: hidden;
+      border-right: 1px solid;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 0.15em;
+      animation: typing 3s steps(40, end);
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Atur tata letak kolom untuk elemen <p> */
+    p {
+      columns: 1;
+    }
+
+    /* Mengubah jumlah kolom menjadi 2 ketika lebar layar lebih besar dari 768px */
+    @media (min-width: 768px) {
+      p {
+        columns: 2;
+      }
+    }
+
+    /* Mengubah jumlah kolom menjadi 3 ketika lebar layar lebih besar dari 1200px */
+    @media (min-width: 1200px) {
+      p {
+        columns: 3;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="bg"></div>
-
-  <div class="content animate__animated animate__bounceInDown">
-    <div class="card">
-      <div>
-        <h3>Ada pesan buat kamu</h3>
-      </div>
-      <img class="surat" src="https://dekatutorial.github.io/spesial_mail.png" alt="MAIL" />
-      <p>Tekan untuk membuka</p>
-    </div>
+  <div class="container" id="lockedContent">
+    <h2>Pesan Terkunci</h2>
+    <button onclick="unlockMessage()">Buka Pesan</button>
   </div>
-  <div class="content2">
-    <div class="paper animate__animated animate__bounceIn" id="content2">
-      <div class="paper-content">
-        <textarea class="pesan" disabled></textarea>
-      </div>
-    </div>
-    <div class="wa animate__animated animate__fadeInUp">
-      <button>Balas Pesan</button>
-    </div>
+
+  <div class="container" id="unlockedContent" style="display: none;">
+    <h2>Pesan Terbuka</h2>
+    <p class="typewriter-text">Haiii, ga disangka ternyata harus semendadak ini berpisah sama keluarga KDM yaa, Senang sekali rasanya bisa mendapat banyak pengalaman disini, ketemu orang orang hebat di tim ini yang pastinya punya kelebihannya masing masing.</p>
+    <br>
+    <button class="reply-button" onclick="openWhatsApp()">Balas Pesan</button>
   </div>
 
   <script>
+    function unlockMessage() {
+      // Gantilah bagian ini dengan kondisi atau logika yang sesuai dengan kebutuhan Anda
+      var isAuthorized = true;
 
-    var musik = "musik.mp3";
-    var background = "KDM.jpg";
-    var ucapanSurat = "Haiii, ternyata semendadak ini ya buat ninggalin keluarga ini. Senang sekali rasanya bisa belajar banyak disini, bisa ketemu tim yang kece abis";
-    var pesanWhatsapp = "Hai Azka, ...";
+      if (isAuthorized) {
+        document.body.style.backgroundImage = "KDM.jpg";
+        
+        var audio = new Audio('musik.mp3');
+        audio.play();
 
-    // Yang mau tanpa wm, custom tampilan, bisa order web ucapan di Deka Tutorial (DM IG @deka_tutorial)
-    // ======================================
-    DekaTutorial(musik, background, ucapanSurat, pesanWhatsapp);
+        document.getElementById('lockedContent').style.display = 'none';
+        document.getElementById('unlockedContent').style.display = 'block';
+      } else {
+        alert('Anda tidak diizinkan membuka pesan.');
+      }
+    }
+
+    function openWhatsApp() {
+      window.location.href = 'https://wa.me/6281220732472';
+    }
   </script>
 </body>
 
