@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pesan Rahasia</title>
+  <title>Last Message for KDM</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -87,20 +87,33 @@
     .slide-in {
       animation: slideInFromBottom 0.5s ease-in-out;
     }
+
+    /* Penyesuaian untuk tampilan di perangkat seluler */
+    @media (max-width: 600px) {
+      body {
+        height: auto;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="container" id="lockedContent">
-    <h2>Pesan Terkunci</h2>
+    <h2>Klik Tombol di bawah yaa temen temen KDM!</h2>
     <button onclick="unlockMessage()">Buka Pesan</button>
   </div>
 
   <div class="container" id="unlockedContent" style="display: none;" class="slide-in">
-    <h2>Pesan Terbuka</h2>
+    <h2>Haii temen temen KDM!</h2>
     <p>Haiii, ga disangka ternyata harus semendadak ini berpisah sama keluarga KDM yaa,</p>
     <p>Senang sekali rasanya bisa mendapat banyak pengalaman disini,</p>
-    <p>ketemu orang orang hebat di tim ini yang pastinya punya kelebihannya masing masing.</p>
+    <p>Ketemu orang orang hebat di tim ini yang pastinya punya kelebihannya masing masing.</p>
+    <p>Sekali lagi aku mau ngucapin terima kasih atas semua ilmunyaa kakak kakak dan temen temen!</p>
+    <p>Aku mohon maaf kalau pernah ada salah atau ada perkataan yang kurang mengenakan yaa.</p>
+    <p>Last, aku izin pamit dan semoga temen temen sukses selalu yaa!</p>
+    <p>Kalau butuh bantuan or something, you have my number yaa gaiiis!</p>
+    <p>Terima kasih atas pengalaman yang berkesan, KDM!</p>
+    <p>Azka Zaviar, Pamit.</p>
     <button class="reply-button" onclick="openWhatsApp()">Balas Pesan</button>
   </div>
 
