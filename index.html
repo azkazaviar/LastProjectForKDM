@@ -16,6 +16,9 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      background-size: cover;
+      background-position: center;
+      transition: background 0.3s ease;
     }
 
     .container {
@@ -70,6 +73,20 @@
         width: 100%;
       }
     }
+
+    /* Animasi muncul dari bawah */
+    @keyframes slideInFromBottom {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .slide-in {
+      animation: slideInFromBottom 0.5s ease-in-out;
+    }
   </style>
 </head>
 
@@ -79,29 +96,26 @@
     <button onclick="unlockMessage()">Buka Pesan</button>
   </div>
 
-  <div class="container" id="unlockedContent" style="display: none;">
+  <div class="container" id="unlockedContent" style="display: none;" class="slide-in">
     <h2>Pesan Terbuka</h2>
-    <p class="typewriter-text">Haiii, ga disangka ternyata harus semendadak ini berpisah sama keluarga KDM yaa, Senang sekali rasanya bisa mendapat banyak pengalaman disini, ketemu orang orang hebat di tim ini yang pastinya punya kelebihannya masing masing.</p>
-    <br>
+    <p>Haiii, ga disangka ternyata harus semendadak ini berpisah sama keluarga KDM yaa,</p>
+    <p>Senang sekali rasanya bisa mendapat banyak pengalaman disini,</p>
+    <p>ketemu orang orang hebat di tim ini yang pastinya punya kelebihannya masing masing.</p>
     <button class="reply-button" onclick="openWhatsApp()">Balas Pesan</button>
   </div>
 
   <script>
+    var backgroundUrl = "KDM.jpg";
+    var musicUrl = "musik.mp3";
+
     function unlockMessage() {
-      // Gantilah bagian ini dengan kondisi atau logika yang sesuai dengan kebutuhan Anda
-      var isAuthorized = true;
+      document.body.style.backgroundImage = "url('" + backgroundUrl + "')";
 
-      if (isAuthorized) {
-        document.body.style.backgroundImage = 'KDM.jpg';
-        
-        var audio = new Audio('musik.mp3');
-        audio.play();
+      var audio = new Audio(musicUrl);
+      audio.play();
 
-        document.getElementById('lockedContent').style.display = 'none';
-        document.getElementById('unlockedContent').style.display = 'block';
-      } else {
-        alert('Anda tidak diizinkan membuka pesan.');
-      }
+      document.getElementById('lockedContent').style.display = 'none';
+      document.getElementById('unlockedContent').style.display = 'block';
     }
 
     function openWhatsApp() {
