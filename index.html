@@ -70,25 +70,6 @@
         width: 100%;
       }
     }
-
-    /* Atur tata letak kolom untuk elemen <p> */
-    p {
-      columns: 1;
-    }
-
-    /* Mengubah jumlah kolom menjadi 2 ketika lebar layar lebih besar dari 768px */
-    @media (min-width: 768px) {
-      p {
-        columns: 2;
-      }
-    }
-
-    /* Mengubah jumlah kolom menjadi 3 ketika lebar layar lebih besar dari 1200px */
-    @media (min-width: 1200px) {
-      p {
-        columns: 3;
-      }
-    }
   </style>
 </head>
 
@@ -111,7 +92,7 @@
       var isAuthorized = true;
 
       if (isAuthorized) {
-        document.body.style.backgroundImage = "KDM.jpg";
+        document.body.style.backgroundImage = 'KDM.jpg';
         
         var audio = new Audio('musik.mp3');
         audio.play();
